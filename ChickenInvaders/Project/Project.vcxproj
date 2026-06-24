@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{621675D1-9AE3-41D5-99AA-BE46DBF9B1D3}</ProjectGuid>
+    <RootNamespace>Project</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)x64\$(Configuration)\obj\</IntDir>
+    <TargetName>Project</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)x64\$(Configuration)\obj\</IntDir>
+    <TargetName>Project</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_DYNAMIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\demor\OneDrive\Desktop\multiMedia\Student Files Upload\MultiMedia_Lab\SFML-2.6.1\include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\Users\demor\OneDrive\Desktop\multiMedia\Student Files Upload\MultiMedia_Lab\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"
+xcopy /Y "$(SolutionDir)*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_DYNAMIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\demor\OneDrive\Desktop\multiMedia\Student Files Upload\MultiMedia_Lab\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\demor\OneDrive\Desktop\multiMedia\Student Files Upload\MultiMedia_Lab\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"
+xcopy /Y "$(SolutionDir)*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\AssetManager.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\HUD.cpp" />
+    <ClCompile Include="src\LevelConfig.cpp" />
+    <ClCompile Include="src\Particle.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\PowerUp.cpp" />
+    <ClCompile Include="src\SoundManager.cpp" />
+    <ClCompile Include="src\Starfield.cpp" />
+    <ClCompile Include="src\enemies\BossEnemy.cpp" />
+    <ClCompile Include="src\enemies\Enemy.cpp" />
+    <ClCompile Include="src\enemies\FastEnemy.cpp" />
+    <ClCompile Include="src\enemies\NormalEnemy.cpp" />
+    <ClCompile Include="src\enemies\SpinnerEnemy.cpp" />
+    <ClCompile Include="src\enemies\TankEnemy.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AssetManager.hpp" />
+    <ClInclude Include="include\Bullet.hpp" />
+    <ClInclude Include="include\Constants.hpp" />
+    <ClInclude Include="include\Entity.hpp" />
+    <ClInclude Include="include\Game.hpp" />
+    <ClInclude Include="include\HUD.hpp" />
+    <ClInclude Include="include\LevelConfig.hpp" />
+    <ClInclude Include="include\Particle.hpp" />
+    <ClInclude Include="include\Player.hpp" />
+    <ClInclude Include="include\PowerUp.hpp" />
+    <ClInclude Include="include\SoundManager.hpp" />
+    <ClInclude Include="include\Starfield.hpp" />
+    <ClInclude Include="include\enemies\BossEnemy.hpp" />
+    <ClInclude Include="include\enemies\Enemy.hpp" />
+    <ClInclude Include="include\enemies\FastEnemy.hpp" />
+    <ClInclude Include="include\enemies\NormalEnemy.hpp" />
+    <ClInclude Include="include\enemies\SpinnerEnemy.hpp" />
+    <ClInclude Include="include\enemies\TankEnemy.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\boss_chicken.png" />
+    <Image Include="assets\bullet_enemy.png" />
+    <Image Include="assets\bullet_player.png" />
+    <Image Include="assets\enemy_chicken.png" />
+    <Image Include="assets\enemy_fast.png" />
+    <Image Include="assets\enemy_spinner.png" />
+    <Image Include="assets\enemy_tank.png" />
+    <Image Include="assets\heart.png" />
+    <Image Include="assets\player_ship.png" />
+    <Image Include="assets\power_bomb.png" />
+    <Image Include="assets\power_life.png" />
+    <Image Include="assets\power_multishot.png" />
+    <Image Include="assets\star.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
